@@ -2,7 +2,7 @@
 
 # Debugging Steps and Implementation steps
 * Followed the steps given in readme file, notice some configuration error while setting up environment
-    >  mongodb-org required libssl1.1 , So have I added installation step to add libssl1.1 manually
+    >  mongodb-org required libssl1.1 , So I have added installation step to add libssl1.1 manually
 
     > Due to Python 3.8 , I have chnage pip -> pip3
 
