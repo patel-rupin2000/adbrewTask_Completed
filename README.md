@@ -4,13 +4,13 @@
 * Followed the steps given in readme file, notice some configuration error while setting up environment
     >  mongodb-org required libssl1.1 , So I have added installation step to add libssl1.1 manually
 
-    > Due to Python 3.8 , I have chnage pip -> pip3
+    > Due to Python 3.8 , I have change pip -> pip3
 
     > And while composing up the docker-compose file some files were missing for executing code and installing dependencies so , I add `COPY src/app .` and  `COPY src/rest .` in Dockerfile so that files get copy from local to container.
 
-    > yarn install works fine but then yarn start was gicen OS ENV Compatible issue due new node Version, so I added `FROM:node16` and `RUN apt-get update && apt-get install -y openssl` and then `RUN export NODE_OPTIONS=--openssl-legacy-provider`
+    > yarn install works fine but then yarn start was giving OS ENV Compatible issue due new upgraded node Version, so I added `FROM:node16` and `RUN apt-get update && apt-get install -y openssl` and then `RUN export NODE_OPTIONS=--openssl-legacy-provider`
 
-    > Notice in docker-compose, migration steps for manage.py were not added so I added them and also change python -> python3 in api container commands
+    > Notice in docker-compose, migration steps for manage.py were not added so I added them and also change python -> python3 in api container commands for executing manage.py
 
     > Added some extra yarn commands in app container to get upgraded packages and clean cache as well
 
