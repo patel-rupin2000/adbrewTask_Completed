@@ -15,7 +15,7 @@ services:
   app:
     build: .
     container_name: app
-    command: bash -c "cd src/app/ && ls && pwd && yarn cache clean && yarn install && yarn upgrade && yarn start"
+    command: bash -c "cd src/app/ && yarn cache clean && yarn install && yarn upgrade && yarn start"
     ports:
       - "3000:3000"
     volumes:

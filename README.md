@@ -1,5 +1,33 @@
 # NOTE: DO NOT FORK THIS REPOSITORY. CLONE AND SETUP A STANDALONE REPOSITORY.
 
+# Debugging Steps and Implementation steps
+* Followed the steps given in readme file, notice some configuration error while setting up environment
+    >  mongodb-org required libssl1.1 , Show I added installation step to add libssl1.1 manually
+
+    > Due to Python 3.8 , I have chnage pip -> pip3
+
+    > And while composing up the docker-compose file some files were missing for executing code and installing dependencies so , I add `COPY src/app .` and  `COPY src/rest .` in Dockerfile so that files get copy from local to container.
+
+    > yarn install works fine but then yarn start was gicen OS ENV Compatible issue due new node Version, so I added `FROM:node16` and `RUN apt-get update && apt-get install -y openssl` and then `RUN export NODE_OPTIONS=--openssl-legacy-provider`
+
+    > Notice in docker-compose, migration steps for manage.py were not added so I added them and also change python -> python3 in api container commands
+
+    > Added some extra yarn commands in app container to get upgraded packages and clean cache as well
+
+* Add simple logic of get and post in view.py and tested it by APIView for restframework in Django. Then add python code for completion of task which is to save todos in mongoDB while POST request and get all todos from mongoDB while GET request
+
+* On React side added necesaary react hooks and GET and POST form Data to deploy Django API. Create onHandle functions and link them with form  and also useEffect for constanly fetching new Todos after render, calling GET request from Django API.
+
+* Added some tags and styling as well.
+
+* Screenshots
+    > ![alt text](https://github.com/patel-rupin2000/adbrewTask_Completed/blob/main/ScreenShots/a.png?raw=true)
+
+    > ![alt text](https://github.com/patel-rupin2000/adbrewTask_Completed/blob/main/ScreenShots/b.png?raw=true)
+
+    > ![alt text](https://github.com/patel-rupin2000/adbrewTask_Completed/blob/main/ScreenShots/c.png?raw=true)
+
+
 # Adbrew Test!
 
 Hello! This test is designed to specifically test your Python, React and web development skills. The task is unconventional and has a slightly contrived setup on purpose and requires you to learn basic concepts of Docker on the fly. 

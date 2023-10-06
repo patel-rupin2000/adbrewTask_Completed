@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework import status
 import json, logging, os
 from pymongo import MongoClient
-from . serializer import *
 
 mongo_uri = 'mongodb://' + os.environ["MONGO_HOST"] + ':' + os.environ["MONGO_PORT"]
 db = MongoClient(mongo_uri)['test_db']
